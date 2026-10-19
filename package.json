@@ -1,0 +1,29 @@
+{
+  "name": "magic-apprentice",
+  "productName": "MAGIC Apprentice",
+  "version": "0.1.0",
+  "description": "A kid- and teen-friendly IDE for the MAGIC language.",
+  "author": {
+    "name": "Mira (The White Witch™)",
+    "email": "thewhitewitchtm@google.com",
+    "url": "https://x.com/TheWhiteWitchTM"
+  },
+  "private": true,
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "smoke": "node scripts/smoke.mjs",
+    "smoke:window": "node scripts/window-smoke.mjs"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.52.2"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+@terminal
+
+-- A terminal is a grid of letters.
+
+let term = new Terminal({ cols: 32, rows: 10, showCursor: false })
+document.body.appendChild(term.canvas.element)
+term.write("Hello from the terminal!\n")
+term.write("MAGIC can draw letters too.\n")
+term.canvas.draw()

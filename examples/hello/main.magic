@@ -1,0 +1,4 @@
+-- Your first program. print writes a line.
+
+print "Hello, world!"
+print "You ran this in MAGIC Apprentice."

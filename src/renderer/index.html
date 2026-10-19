@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MAGIC Apprentice</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-theme="paper" data-mode="beginner">
+  <div id="splash">
+    <span class="mark" aria-hidden="true">✦</span>
+    <strong>MAGIC Apprentice</strong>
+  </div>
+  <div id="app" hidden>
+    <header class="top">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">✦</span>
+        <div>
+          <strong>MAGIC Apprentice</strong>
+          <span id="project-name" class="tag">Loading</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="save" type="button">Save</button>
+        <button id="mode" type="button" aria-pressed="false">Beginner</button>
+        <button id="theme" type="button">Night</button>
+        <button id="help" type="button">Help</button>
+        <button id="stop" type="button">Stop</button>
+        <button id="run" type="button" class="run">▶ Run</button>
+      </div>
+    </header>
+    <section id="lesson" class="lesson" hidden></section>
+    <div class="workspace">
+      <aside class="side">
+        <h2>Examples</h2>
+        <div id="examples" class="cards"></div>
+        <h2>My projects</h2>
+        <div id="projects" class="cards"></div>
+        <button id="new-project" type="button" class="wide">New project</button>
+        <div class="advanced-only">
+          <h2>Files</h2>
+          <div id="files" class="cards"></div>
+          <button id="new-file" type="button" class="wide">New file</button>
+          <label class="check"><input id="strict" type="checkbox"> Strict check</label>
+          <button id="show-folder" type="button" class="wide quiet">Show folder</button>
+        </div>
+      </aside>
+      <section class="stage">
+        <div class="editor-bar">
+          <span id="file-name">main.magic</span>
+          <span id="dirty" class="tag" hidden>Unsaved</span>
+        </div>
+        <div id="editor"></div>
+        <div class="output-wrap">
+          <div id="problem" class="problem" hidden></div>
+          <div class="output-bar">
+            <h2>Output</h2>
+            <span id="run-state" class="tag">Ready</span>
+          </div>
+          <pre id="output">Press Run. Words from print show up here. Pictures open in a play window.</pre>
+        </div>
+      </section>
+      <aside class="coach">
+        <h2>Helper</h2>
+        <p class="hint">The helper explains. It never changes your program unless you agree.</p>
+        <ul id="notes"></ul>
+        <label class="ask-label" for="question">Ask something</label>
+        <textarea id="question" rows="3" placeholder="What does this line do?"></textarea>
+        <div class="coach-actions">
+          <button id="explain" type="button" class="primary">Explain this</button>
+          <button id="ask-send" type="button">Ask</button>
+        </div>
+        <p id="helper-status" class="hint"></p>
+        <div id="answer" class="answer"></div>
+        <div id="suggestion" class="suggestion" hidden>
+          <p>The helper suggested new code. Your program stays as it is until you choose.</p>
+          <pre id="suggestion-code"></pre>
+          <button id="use-suggestion" type="button" class="primary">Use this code</button>
+        </div>
+        <div class="export-row">
+          <button id="export-page" type="button" class="wide">Web page</button>
+          <button id="export-app" type="button" class="wide">App</button>
+        </div>
+        <pre id="export-log" class="export-log" hidden></pre>
+      </aside>
+    </div>
+  </div>
+  <div id="modal" class="modal" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+      <input id="modal-input" hidden>
+      <div class="dialog-actions">
+        <button id="modal-cancel" type="button">Cancel</button>
+        <button id="modal-ok" type="button" class="primary">OK</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../node_modules/monaco-editor/min/vs/loader.js"></script>
+  <script src="./boot.js"></script>
+</body>
+</html>

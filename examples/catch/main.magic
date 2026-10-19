@@ -1,0 +1,52 @@
+@canvas
+@games
+
+-- Arrow keys move the cat. Catch the stars.
+
+let engine = new Engine({ width: 480, height: 270 })
+let ui = Utilities.wrap(engine.canvas, { title: "Catch the star" })
+document.body.appendChild(ui.wrap)
+
+let player = engine.sprite("🐱", 240, 210, 48)
+let star = engine.sprite("⭐", 80, 30, 36)
+let score = new Score(0)
+let speed = 2
+let spots = [60, 140, 220, 300, 380]
+
+fn showScore()
+  if ui.footer then
+    ui.footer.textContent = "Stars: " .. score.value
+  end
+end
+
+fn placeStar()
+  star.y = 24
+  star.x = spots[score.value mod 5]
+end
+
+showScore()
+
+fn frame()
+  if engine.isKeyDown("ArrowLeft") then
+    player.x = clamp(player.x - 6, 30, 450)
+  end
+  if engine.isKeyDown("ArrowRight") then
+    player.x = clamp(player.x + 6, 30, 450)
+  end
+  star.y = star.y + speed
+  if star.y > 260 then
+    placeStar()
+  end
+  engine.update()
+  engine.canvas.draw()
+  requestAnimationFrame(frame)
+end
+
+engine.onCollision(fn(a, b)
+  score.add(1)
+  showScore()
+  speed = speed + 0.2
+  placeStar()
+end)
+
+requestAnimationFrame(frame)

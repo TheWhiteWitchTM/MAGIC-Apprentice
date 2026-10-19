@@ -1,0 +1,15 @@
+@games
+
+-- A score remembers the points and the best total.
+
+let board = new Score(0)
+board.add(10)
+board.add(5)
+print "Score"
+print board.value
+print "Best"
+print board.best
+
+let bag = ["🌟", "🌙", "🍀"]
+print "You found"
+print choice(bag)

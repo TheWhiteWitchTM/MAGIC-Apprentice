@@ -1,0 +1,24 @@
+@canvas
+
+-- A star that drifts across the picture.
+
+let engine = new Engine({ width: 480, height: 270 })
+let ui = Utilities.wrap(engine.canvas, { title: "My sprite" })
+document.body.appendChild(ui.wrap)
+
+let spark = engine.sprite("🌟", 80, 135, 64)
+engine.motion(spark, 1.4, 0.35)
+
+fn frame()
+  if spark.x > 450 then
+    spark.x = 30
+  end
+  if spark.y > 240 then
+    spark.y = 30
+  end
+  engine.update()
+  engine.canvas.draw()
+  requestAnimationFrame(frame)
+end
+
+requestAnimationFrame(frame)
