@@ -16,6 +16,9 @@ const MODULES = [
   ['hex', 'Hex grids'],
   ['3d', 'A 3D scene'],
   ['ui', 'Windows and buttons'],
+  ['none', 'Do not check types'],
+  ['lazy', 'Check a type on the line you wrote it'],
+  ['basic', 'Check a type when the name is used'],
   ['strict', 'Check the types you wrote'],
 ];
 
